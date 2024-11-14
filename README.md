@@ -1,6 +1,17 @@
-# Journal Categories Extended Backlinks. 
-This modul allows to add a freely configurable category to any journal Entry. The Icon is displayed next to the Page-Title in the sidebar. 
-![a variety of entities showing links](example1.jpg)
+# Journal Categories
+
+This module allows you to add customizable categories to any journal entry. Each category is represented by an icon displayed next to the page title in the sidebar.
+
+The module integrates with [Extended Journal Links](https://github.com/Muwak77/journal-backlinks-extended) to display category icons in backlink references.
+
+![Various entities showing links](example1.jpg)
+
 ## Settings
-* **Categories**: A list split by semicolon that contains the category names
-* **Heading tag**:A list split by semicolon that contains the font awesome classes for the icons
+
+- **Categories**: A semicolon-separated list of category names.
+- **Icons**: A semicolon-separated list of FontAwesome icon classes for each category.
+- **Heading Tag**: The HTML heading tag used for the "Linked from" section in backlink displays.
+
+---
+
+This layout provides clear sections and better readability for users.
