@@ -10,7 +10,6 @@ The module integrates with [Extended Journal Links](https://github.com/Muwak77/j
 
 - **Categories**: A semicolon-separated list of category names.
 - **Icons**: A semicolon-separated list of FontAwesome icon classes for each category.
-- **Heading Tag**: The HTML heading tag used for the "Linked from" section in backlink displays.
 
 ---
 
