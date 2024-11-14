@@ -1,0 +1,8 @@
+.category-display{
+  display: inline-block;
+  font-weight: bold;
+}
+
+.journal-categories-dropbdown-group {  
+  margin: 0 1rem 1rem   1rem!important;
+}
