@@ -10,7 +10,3 @@ The module integrates with [Extended Journal Links](https://github.com/Muwak77/j
 
 - **Categories**: A semicolon-separated list of category names.
 - **Icons**: A semicolon-separated list of FontAwesome icon classes for each category.
-
----
-
-This layout provides clear sections and better readability for users.
