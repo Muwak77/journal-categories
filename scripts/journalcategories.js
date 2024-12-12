@@ -2,10 +2,43 @@ export class JournalCategories {
    static renderPage(app, html, data)  {
         // Überprüfen, ob der Editor-Modus aktiv ist
         const journalPage = app.object;
-        if (!app.options.editable) {
-            const category = journalPage.getFlag('journal-categories', 'categoryDropdown') || "-";
-            const categoryIndex = valueSet.indexOf(category);
-            const iconClass = iconSet[categoryIndex] || "";
+        if (!app.options.editable) {                                    
+            const contentLinks = html.find("a.content-link");
+            console.log(contentLinks.length);
+            const valueSet = game.settings
+              .get("journal-categories", "valueSet")
+              .split(";")
+              .map((item) => item.trim());
+            const iconSet = game.settings
+              .get("journal-categories", "iconSet")
+              .split(";")
+              .map((icon) => icon.trim());
+        
+            contentLinks.each((index, link) => {
+              const elementId = $(link).data("id");
+              const elementType = $(link).data("type");
+              let iconClass='';
+        
+              let document;
+              if (elementType == "JournalEntryPage") {
+                document = game.journal.contents
+                  .find((j) => j.pages.has(elementId))
+                  .pages.get(elementId);
+        
+                const category =
+                  document.getFlag("journal-categories", "categoryDropdown") || "-";
+                const categoryIndex = valueSet.indexOf(category);
+                iconClass = iconSet[categoryIndex] || "";
+              }
+        
+              const icon = $(link).find("i");
+        
+              if (icon.length > 0) {
+                icon.attr("class", iconClass);
+              }
+            });
+        
+            console.log("Icons erfolgreich aktualisiert:", contentLinks);
 
         }else {
             const werteText = game.settings.get("journal-categories", "valueSet");
