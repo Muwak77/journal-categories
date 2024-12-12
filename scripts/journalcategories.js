@@ -32,8 +32,8 @@ export class JournalCategories {
               }
         
               const icon = $(link).find("i");
-        
-              if (icon.length > 0) {
+
+              if (icon.length > 0 && iconClass!="") {
                 icon.attr("class", iconClass);
               }
             });
