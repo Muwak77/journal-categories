@@ -4,7 +4,7 @@ export class JournalCategories {
         const journalPage = app.object;
         if (!app.options.editable) {                                    
             const contentLinks = html.find("a.content-link");
-            console.log(contentLinks.length);
+
             const valueSet = game.settings
               .get("journal-categories", "valueSet")
               .split(";")
@@ -13,7 +13,19 @@ export class JournalCategories {
               .get("journal-categories", "iconSet")
               .split(";")
               .map((icon) => icon.trim());
-        
+            
+            //ADD icon to header
+            const pageCategory=journalPage.getFlag('journal-categories', 'categoryDropdown');
+
+            const pageCategoryIndex = valueSet.indexOf(pageCategory);
+            const pageIconClass = iconSet[pageCategoryIndex] || "";
+            const pageIcon = $('<i style="margin-right:5px;" class="'+pageIconClass+'"></i>');     
+            // Prepend the icon to the <h1> element
+            $('.journal-page-header h1').prepend(pageIcon);
+
+
+            //Adjust icons in Page Links
+                
             contentLinks.each((index, link) => {
               const elementId = $(link).data("id");
               const elementType = $(link).data("type");
