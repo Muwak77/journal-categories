@@ -21,8 +21,10 @@ export class JournalCategories {
             const pageIconClass = iconSet[pageCategoryIndex] || "";
             const pageIcon = $('<i style="margin-right:5px;" class="'+pageIconClass+'"></i>');     
             // Prepend the icon to the <h1> element
-            $('.journal-page-header h1').prepend(pageIcon);
-
+           
+            if ($('.journal-page-header h1 i').length === 0) {                
+                $('.journal-page-header h1').prepend(pageIcon);
+            }
 
             //Adjust icons in Page Links
                 
